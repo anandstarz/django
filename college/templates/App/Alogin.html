@@ -16,6 +16,14 @@
     </tr>
 {% endfor %}
 </table>
-{% show_pages %}
+<!--{% show_pages %}-->
+
+{% get_pages %}
+{{ pages.previous }} {{ pages.next }}
+
+{{ pages.current_start_index }}-{{ pages.current_end_index }} of
+{{ pages.total_count }}.
+{# Just print pages to render the Digg-style pagination. #}
+{{ pages }}
 </body>
 </html>
