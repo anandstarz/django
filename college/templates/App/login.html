@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Sign In</title>
+
+<!-- Google fonts -->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,300' rel='stylesheet' type='text/css'>
+<!-- Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+
+
+</head>
+<body>
+	<div class="main-container">
+
+   <form id="loginform" method="post" action="">{% csrf_token %}
+            <div class="loginWrap col-xs-7 center-block">
+                <div class="formRow">
+                    <div class="formField">
+
+                        <label><span>Email Address</span></label>
+
+
+                        <input value="" name="username" id="username" placeholder="Email Address" class="textBox" >
+
+                    </div>
+                    <span class="errormessage" id="errusername"></span>
+                </div>
+                <div class="formRow">
+                    <div class="formField">
+                        <label><span>Password</span></label>
+
+
+                        <input type="password" value="" name="password" id="password" placeholder="Password" class="textBox" >
+
+                    </div>
+                    <span class="errormessage" id="errpassword"></span>
+                </div>
+                <div class="formRow">
+                    <div class="formField clearfix">
+                        <input type="submit" class="btn btn-primary nextClick" value="Submit">
+                        <input type="reset" class="btn btn-secondary prevClick" value="Reset" id="resetValues">
+                    </div>
+                    <div class="formField">
+                    <ul>
+
+
+                    <li><a href="/emp/signup/">Not registered? Create an account here.</a></li>
+                    </ul>
+                    </div>
+                </div>
+                </div>
+                </form>
+            </div>
+     <h2>Entries:</h2>
+      {% include page_template %}
+
+
+        {% block js %}
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="http://127.0.0.1:8000/static/emp/emp/js/endless-pagination.js"></script>
+            <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+    <script>        $.endlessPaginate({            paginateOnScroll: true,            paginateOnScrollChunkSize: 5        });    </script>
+          <script>
+        $(function() {
+  $("#aaa").autocomplete({
+    source: "/clg/cmp/",
+  });
+});
+    </script>
+        {% endblock %}
+
+  </div>
+
+      <h1>Autocomplete Example</h1>
+
+  <form method="post" action="/search/" class="autocomplete-me">
+    <input type="text" id="aaa" name="term">
+    <input type="submit" value="Search!">
+  </form>
+
+    </div>
+
+s
+</body>
+</html>

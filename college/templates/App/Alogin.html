@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% load endless %}
+
+{% paginate 2 entries %}
+<table>
+
+{% for entry in entries %}
+    <tr>
+       <td> {{ entry.username }}</td>
+    </tr>
+{% endfor %}
+</table>
+{% show_pages %}
+</body>
+</html>
